@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: WebDevelopementFinalProject
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Owner
+Implementation-Vendor-Id: neu.edu.info6250
+Build-Jdk: 1.8.0_121
+Implementation-URL: http://projects.spring.io/spring-boot/WebDevelopem
+ entFinalProject/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: neu.edu.config.Application
+

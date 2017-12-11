@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="webdevelopment" dynamic-insert="false" dynamic-update="false" mutable="true" name="neu.edu.entity.Funding" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="funding">
+        <id name="idfunding" type="java.lang.Integer">
+            <column name="idfunding"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="neu.edu.entity.Idea" embed-xml="true" fetch="select" insert="true" name="idea" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="ididea" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="neu.edu.entity.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="iduser" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="fundingValue" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="fundingValue"/>
+        </property>
+        <property generated="never" lazy="false" name="fundedRecieved" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="fundedRecieved"/>
+        </property>
+    </class>
+</hibernate-mapping>
