@@ -11,11 +11,9 @@ public class RoleModel {
 	private String roleDesc;
 
 	public RoleModel() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public RoleModel(Integer roleId) {
-		// TODO Auto-generated constructor stub
 		this.roleId = roleId;
 	}
 

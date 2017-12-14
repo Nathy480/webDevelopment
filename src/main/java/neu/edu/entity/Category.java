@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,7 +22,7 @@ import javax.persistence.TemporalType;
 @Table(name = "category", catalog = "webdevelopment")
 public class Category implements java.io.Serializable {
 
-	private int idcategory;
+	private Integer categoryId;
 	private String categoryName;
 	private String categoryDesc;
 	private Date createdOn;
@@ -31,15 +33,13 @@ public class Category implements java.io.Serializable {
 	public Category() {
 	}
 
-	public Category(int idcategory, String categoryName, String categoryDesc) {
-		this.idcategory = idcategory;
+	public Category(String categoryName, String categoryDesc) {
 		this.categoryName = categoryName;
 		this.categoryDesc = categoryDesc;
 	}
 
-	public Category(int idcategory, String categoryName, String categoryDesc, Date createdOn, Date createdBy,
+	public Category(String categoryName, String categoryDesc, Date createdOn, Date createdBy,
 			Set<CategoryStartup> categoryStartups, Set<Idea> ideas) {
-		this.idcategory = idcategory;
 		this.categoryName = categoryName;
 		this.categoryDesc = categoryDesc;
 		this.createdOn = createdOn;
@@ -49,17 +49,18 @@ public class Category implements java.io.Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idcategory", unique = true, nullable = false)
-	public int getIdcategory() {
-		return this.idcategory;
+	@Column(name = "category_id", unique = true, nullable = false)
+	public Integer getCategoryId() {
+		return this.categoryId;
 	}
 
-	public void setIdcategory(int idcategory) {
-		this.idcategory = idcategory;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
-	@Column(name = "categoryName", nullable = false, length = 45)
+	@Column(name = "category_name", nullable = false, length = 45)
 	public String getCategoryName() {
 		return this.categoryName;
 	}
@@ -68,7 +69,7 @@ public class Category implements java.io.Serializable {
 		this.categoryName = categoryName;
 	}
 
-	@Column(name = "categoryDesc", nullable = false, length = 45)
+	@Column(name = "category_desc", nullable = false, length = 45)
 	public String getCategoryDesc() {
 		return this.categoryDesc;
 	}
@@ -78,7 +79,7 @@ public class Category implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdOn", length = 19)
+	@Column(name = "created_on", length = 19)
 	public Date getCreatedOn() {
 		return this.createdOn;
 	}
@@ -88,7 +89,7 @@ public class Category implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdBy", length = 19)
+	@Column(name = "created_by", length = 19)
 	public Date getCreatedBy() {
 		return this.createdBy;
 	}

@@ -15,12 +15,17 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
+/**
+ * https://www.thomasvitale.com/spring-data-jpa-hibernate-java-configuration/
+ * @author ashwindsousa
+ *
+ */
 @SpringBootApplication
 @ComponentScan({"neu.edu.config","neu.edu.config.security","neu.edu.controller","neu.edu.service"})
 @EnableJpaRepositories("neu.edu.dao")
 @EntityScan("neu.edu.entity")
 public class Application extends WebMvcConfigurerAdapter implements CommandLineRunner {
+	
 	
 	@Autowired
 	private DataSource dataSource;

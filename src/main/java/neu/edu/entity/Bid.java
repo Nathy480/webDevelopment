@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Table(name = "bid", catalog = "webdevelopment")
 public class Bid implements java.io.Serializable {
 
-	private Integer idbid;
+	private Integer bidId;
 	private IdeaService ideaService;
 	private User user;
 	private int bidValue;
@@ -49,17 +49,17 @@ public class Bid implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idbid", unique = true, nullable = false)
-	public Integer getIdbid() {
-		return this.idbid;
+	@Column(name = "bid_id", unique = true, nullable = false)
+	public Integer getBidId() {
+		return this.bidId;
 	}
 
-	public void setIdbid(Integer idbid) {
-		this.idbid = idbid;
+	public void setBidId(Integer bidId) {
+		this.bidId = bidId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idideaservices", nullable = false)
+	@JoinColumn(name = "idea_services_id", nullable = false)
 	public IdeaService getIdeaService() {
 		return this.ideaService;
 	}
@@ -69,7 +69,7 @@ public class Bid implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "iduser", nullable = false)
+	@JoinColumn(name = "user_id", nullable = false)
 	public User getUser() {
 		return this.user;
 	}
@@ -78,7 +78,7 @@ public class Bid implements java.io.Serializable {
 		this.user = user;
 	}
 
-	@Column(name = "bidValue", nullable = false)
+	@Column(name = "bid_value", nullable = false)
 	public int getBidValue() {
 		return this.bidValue;
 	}
@@ -87,7 +87,7 @@ public class Bid implements java.io.Serializable {
 		this.bidValue = bidValue;
 	}
 
-	@Column(name = "descriptionWork", nullable = false, length = 45)
+	@Column(name = "description_work", nullable = false, length = 45)
 	public String getDescriptionWork() {
 		return this.descriptionWork;
 	}

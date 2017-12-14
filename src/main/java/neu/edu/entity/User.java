@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
 @Table(name = "user", catalog = "webdevelopment")
 public class User implements java.io.Serializable {
 
-	private Integer iduser;
+	private Integer userId;
 	private Person person;
 	private String username;
 	private String password;
@@ -32,22 +32,21 @@ public class User implements java.io.Serializable {
 	private String reason;
 	private Date createdOn;
 	private Date updateOn;
+	private Set<Bid> bids = new HashSet<Bid>(0);
 	private Set<Funding> fundings = new HashSet<Funding>(0);
 	private Set<UserRole> userRoles = new HashSet<UserRole>(0);
-	private Set<Bid> bids = new HashSet<Bid>(0);
 
 	public User() {
 	}
 
-	public User(Person person, String username, String password, String reason) {
+	public User(Person person, String username, String password) {
 		this.person = person;
 		this.username = username;
 		this.password = password;
-		this.reason = reason;
 	}
 
 	public User(Person person, String username, String password, Integer status, String reason, Date createdOn,
-			Date updateOn, Set<Funding> fundings, Set<UserRole> userRoles, Set<Bid> bids) {
+			Date updateOn, Set<Bid> bids, Set<Funding> fundings, Set<UserRole> userRoles) {
 		this.person = person;
 		this.username = username;
 		this.password = password;
@@ -55,25 +54,25 @@ public class User implements java.io.Serializable {
 		this.reason = reason;
 		this.createdOn = createdOn;
 		this.updateOn = updateOn;
+		this.bids = bids;
 		this.fundings = fundings;
 		this.userRoles = userRoles;
-		this.bids = bids;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "iduser", unique = true, nullable = false)
-	public Integer getIduser() {
-		return this.iduser;
+	@Column(name = "user_id", unique = true, nullable = false)
+	public Integer getUserId() {
+		return this.userId;
 	}
 
-	public void setIduser(Integer iduser) {
-		this.iduser = iduser;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idperson", nullable = false)
+	@JoinColumn(name = "person_id", nullable = false)
 	public Person getPerson() {
 		return this.person;
 	}
@@ -109,7 +108,7 @@ public class User implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@Column(name = "reason", nullable = false, length = 200)
+	@Column(name = "reason", length = 200)
 	public String getReason() {
 		return this.reason;
 	}
@@ -119,7 +118,7 @@ public class User implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdOn", length = 19)
+	@Column(name = "created_on", length = 19)
 	public Date getCreatedOn() {
 		return this.createdOn;
 	}
@@ -129,13 +128,22 @@ public class User implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updateOn", length = 19)
+	@Column(name = "update_on", length = 19)
 	public Date getUpdateOn() {
 		return this.updateOn;
 	}
 
 	public void setUpdateOn(Date updateOn) {
 		this.updateOn = updateOn;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	public Set<Bid> getBids() {
+		return this.bids;
+	}
+
+	public void setBids(Set<Bid> bids) {
+		this.bids = bids;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
@@ -154,15 +162,6 @@ public class User implements java.io.Serializable {
 
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<Bid> getBids() {
-		return this.bids;
-	}
-
-	public void setBids(Set<Bid> bids) {
-		this.bids = bids;
 	}
 
 }

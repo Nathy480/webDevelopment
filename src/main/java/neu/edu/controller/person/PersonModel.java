@@ -16,7 +16,9 @@ public class PersonModel {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String companyName;
 	
+
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dob;
 	
@@ -49,6 +51,13 @@ public class PersonModel {
 	}
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+	
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	
 }

@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 @Table(name = "user_role", catalog = "webdevelopment")
 public class UserRole implements java.io.Serializable {
 
-	private Integer iduserRole;
+	private Integer userRoleId;
 	private Role role;
 	private User user;
 	private Integer status;
@@ -45,17 +45,17 @@ public class UserRole implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "iduser_Role", unique = true, nullable = false)
-	public Integer getIduserRole() {
-		return this.iduserRole;
+	@Column(name = "user_role_id", unique = true, nullable = false)
+	public Integer getUserRoleId() {
+		return this.userRoleId;
 	}
 
-	public void setIduserRole(Integer iduserRole) {
-		this.iduserRole = iduserRole;
+	public void setUserRoleId(Integer userRoleId) {
+		this.userRoleId = userRoleId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idrole", nullable = false)
+	@JoinColumn(name = "role_id", nullable = false)
 	public Role getRole() {
 		return this.role;
 	}
@@ -65,7 +65,7 @@ public class UserRole implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "iduser", nullable = false)
+	@JoinColumn(name = "user_id", nullable = false)
 	public User getUser() {
 		return this.user;
 	}
@@ -84,7 +84,7 @@ public class UserRole implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdOn", length = 19)
+	@Column(name = "created_on", length = 19)
 	public Date getCreatedOn() {
 		return this.createdOn;
 	}

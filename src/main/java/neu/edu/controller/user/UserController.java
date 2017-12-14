@@ -25,7 +25,7 @@ public class UserController {
 
 
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, path="/register")
 	public ResponseEntity<?> createUser(@Valid @RequestBody UserCreation userCreation) {
 
 		ResponseEntity<?> responseEntity = new ResponseEntity<>("User Creation Failed",
@@ -63,10 +63,17 @@ public class UserController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public List<UserModel> findAll() {
-
-		return userService.findAll();
+	public  ResponseEntity<?> findAll() {
+		 List<UserModel> userModels = userService.findAll();
+		return  new  ResponseEntity<>(userModels, HttpStatus.OK);
 	}
+	
+	@RequestMapping(path = "/{userId}", method = RequestMethod.GET)
+	public UserModel fetchUserDetails(@PathVariable("userId") Integer userId) {
+		return userService.fetchUserDetails(userId);
+	}
+
+
 
 	@RequestMapping(path = "{username}/validate", method = RequestMethod.GET)
 	public ResponseEntity<?> validateUser(@PathVariable("username") String username) {
@@ -88,12 +95,5 @@ public class UserController {
 		}
 		return responseEntity;
 	}
-
-	@RequestMapping(path = "/{userId}", method = RequestMethod.GET)
-	public UserModel fetchUserDetails(@PathVariable("userId") Integer userId) {
-		return userService.fetchUserDetails(userId);
-	}
-
-
 
 }

@@ -1,7 +1,5 @@
 package neu.edu.controller.user;
 
-import javax.validation.constraints.NotNull;
-
 
 import neu.edu.controller.person.PersonModel;
 import neu.edu.controller.role.RoleModel;
@@ -13,10 +11,17 @@ public class UserModel {
 	private String username;
 	private PersonModel person;
 
+	public UserModel() {		
+	}
+	
+	public UserModel(Integer userId) {
+		this.userId = userId;
+	}
 
 	public Integer getUserId() {
 		return userId;
 	}
+	
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}

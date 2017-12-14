@@ -12,9 +12,12 @@ public class UserCreation {
 	private String username;
 	private String password;
 	private Integer roleId;
+	private String companyname;
+	
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
+	
 
 	public UserCreation() {
 	}
@@ -74,5 +77,19 @@ public class UserCreation {
 	public Date getDob() {
 		return dob;
 	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public String getCompanyname() {
+		return companyname;
+	}
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
+	}
+	
+	
+	
 
 }

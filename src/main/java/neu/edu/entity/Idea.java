@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
 @Table(name = "idea", catalog = "webdevelopment")
 public class Idea implements java.io.Serializable {
 
-	private Integer ididea;
+	private Integer ideaId;
 	private Bid bid;
 	private Category category;
 	private String ideaName;
@@ -78,17 +78,17 @@ public class Idea implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "ididea", unique = true, nullable = false)
-	public Integer getIdidea() {
-		return this.ididea;
+	@Column(name = "idea_id", unique = true, nullable = false)
+	public Integer getIdeaId() {
+		return this.ideaId;
 	}
 
-	public void setIdidea(Integer ididea) {
-		this.ididea = ididea;
+	public void setIdeaId(Integer ideaId) {
+		this.ideaId = ideaId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idbid")
+	@JoinColumn(name = "bid_id")
 	public Bid getBid() {
 		return this.bid;
 	}
@@ -98,7 +98,7 @@ public class Idea implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idcategory", nullable = false)
+	@JoinColumn(name = "category_id", nullable = false)
 	public Category getCategory() {
 		return this.category;
 	}
@@ -107,7 +107,7 @@ public class Idea implements java.io.Serializable {
 		this.category = category;
 	}
 
-	@Column(name = "ideaName", nullable = false, length = 45)
+	@Column(name = "idea_name", nullable = false, length = 45)
 	public String getIdeaName() {
 		return this.ideaName;
 	}
@@ -116,7 +116,7 @@ public class Idea implements java.io.Serializable {
 		this.ideaName = ideaName;
 	}
 
-	@Column(name = "ideaDesc", nullable = false, length = 45)
+	@Column(name = "idea_desc", nullable = false, length = 45)
 	public String getIdeaDesc() {
 		return this.ideaDesc;
 	}
@@ -125,7 +125,7 @@ public class Idea implements java.io.Serializable {
 		this.ideaDesc = ideaDesc;
 	}
 
-	@Column(name = "goalFunding", nullable = false, length = 45)
+	@Column(name = "goal_funding", nullable = false, length = 45)
 	public String getGoalFunding() {
 		return this.goalFunding;
 	}
@@ -161,7 +161,7 @@ public class Idea implements java.io.Serializable {
 		this.reason = reason;
 	}
 
-	@Column(name = "compilationPercentage")
+	@Column(name = "compilation_percentage")
 	public Integer getCompilationPercentage() {
 		return this.compilationPercentage;
 	}
@@ -171,7 +171,7 @@ public class Idea implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "startDate", nullable = false, length = 19)
+	@Column(name = "start_date", nullable = false, length = 19)
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -180,7 +180,7 @@ public class Idea implements java.io.Serializable {
 		this.startDate = startDate;
 	}
 
-	@Column(name = "createdBy", nullable = false, length = 45)
+	@Column(name = "created_by", nullable = false, length = 45)
 	public String getCreatedBy() {
 		return this.createdBy;
 	}
@@ -190,7 +190,7 @@ public class Idea implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdOn", length = 19)
+	@Column(name = "created_on", length = 19)
 	public Date getCreatedOn() {
 		return this.createdOn;
 	}
@@ -199,7 +199,7 @@ public class Idea implements java.io.Serializable {
 		this.createdOn = createdOn;
 	}
 
-	@Column(name = "endDate", length = 45)
+	@Column(name = "end_date", length = 45)
 	public String getEndDate() {
 		return this.endDate;
 	}

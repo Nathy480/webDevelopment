@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="webdevelopment" dynamic-insert="false" dynamic-update="false" mutable="true" name="neu.edu.entity.Category" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="category">
-        <id name="idcategory" type="int">
-            <column name="idcategory"/>
-            <generator class="assigned"/>
+        <id name="categoryId" type="java.lang.Integer">
+            <column name="category_id"/>
+            <generator class="identity"/>
         </id>
         <property generated="never" lazy="false" name="categoryName" optimistic-lock="true" type="string" unique="false">
-            <column length="45" name="categoryName" not-null="true"/>
+            <column length="45" name="category_name" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="categoryDesc" optimistic-lock="true" type="string" unique="false">
-            <column length="45" name="categoryDesc" not-null="true"/>
+            <column length="45" name="category_desc" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="createdOn" optimistic-lock="true" type="timestamp" unique="false">
-            <column length="19" name="createdOn"/>
+            <column length="19" name="created_on"/>
         </property>
         <property generated="never" lazy="false" name="createdBy" optimistic-lock="true" type="timestamp" unique="false">
-            <column length="19" name="createdBy"/>
+            <column length="19" name="created_by"/>
         </property>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="categoryStartups" optimistic-lock="true" sort="unsorted" table="category_startup">
             <key on-delete="noaction">
-                <column name="idcategory" not-null="true"/>
+                <column name="category_id" not-null="true"/>
             </key>
             <one-to-many class="neu.edu.entity.CategoryStartup" embed-xml="true" not-found="exception"/>
         </set>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="ideas" optimistic-lock="true" sort="unsorted" table="idea">
             <key on-delete="noaction">
-                <column name="idcategory" not-null="true"/>
+                <column name="category_id" not-null="true"/>
             </key>
             <one-to-many class="neu.edu.entity.Idea" embed-xml="true" not-found="exception"/>
         </set>

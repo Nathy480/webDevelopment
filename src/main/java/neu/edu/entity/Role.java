@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 @Table(name = "role", catalog = "webdevelopment")
 public class Role implements java.io.Serializable {
 
-	private Integer idrole;
+	private Integer roleId;
 	private String roleName;
 	private String roleDesc;
 	private Date createdOn;
@@ -50,16 +50,16 @@ public class Role implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idrole", unique = true, nullable = false)
-	public Integer getIdrole() {
-		return this.idrole;
+	@Column(name = "role_id", unique = true, nullable = false)
+	public Integer getRoleId() {
+		return this.roleId;
 	}
 
-	public void setIdrole(Integer idrole) {
-		this.idrole = idrole;
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
 	}
 
-	@Column(name = "roleName", nullable = false, length = 45)
+	@Column(name = "role_name", nullable = false, length = 45)
 	public String getRoleName() {
 		return this.roleName;
 	}
@@ -68,7 +68,7 @@ public class Role implements java.io.Serializable {
 		this.roleName = roleName;
 	}
 
-	@Column(name = "roleDesc", nullable = false, length = 45)
+	@Column(name = "role_desc", nullable = false, length = 45)
 	public String getRoleDesc() {
 		return this.roleDesc;
 	}
@@ -78,7 +78,7 @@ public class Role implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdOn", nullable = false, length = 19)
+	@Column(name = "created_on", nullable = false, length = 19)
 	public Date getCreatedOn() {
 		return this.createdOn;
 	}
@@ -88,7 +88,7 @@ public class Role implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdBy", nullable = false, length = 19)
+	@Column(name = "created_by", nullable = false, length = 19)
 	public Date getCreatedBy() {
 		return this.createdBy;
 	}

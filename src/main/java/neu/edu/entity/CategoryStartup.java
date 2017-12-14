@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "category_startup", catalog = "webdevelopment")
 public class CategoryStartup implements java.io.Serializable {
 
-	private Integer idcategoryStartup;
+	private Integer categoryStartupId;
 	private Category category;
 	private Person person;
 
@@ -33,17 +33,17 @@ public class CategoryStartup implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idcategory_startup", unique = true, nullable = false)
-	public Integer getIdcategoryStartup() {
-		return this.idcategoryStartup;
+	@Column(name = "category_startup_id", unique = true, nullable = false)
+	public Integer getCategoryStartupId() {
+		return this.categoryStartupId;
 	}
 
-	public void setIdcategoryStartup(Integer idcategoryStartup) {
-		this.idcategoryStartup = idcategoryStartup;
+	public void setCategoryStartupId(Integer categoryStartupId) {
+		this.categoryStartupId = categoryStartupId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idcategory", nullable = false)
+	@JoinColumn(name = "category_id", nullable = false)
 	public Category getCategory() {
 		return this.category;
 	}
@@ -53,7 +53,7 @@ public class CategoryStartup implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idperson", nullable = false)
+	@JoinColumn(name = "person_id", nullable = false)
 	public Person getPerson() {
 		return this.person;
 	}

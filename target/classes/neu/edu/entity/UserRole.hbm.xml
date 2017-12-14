@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="webdevelopment" dynamic-insert="false" dynamic-update="false" mutable="true" name="neu.edu.entity.UserRole" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="user_role">
-        <id name="iduserRole" type="java.lang.Integer">
-            <column name="iduser_Role"/>
+        <id name="userRoleId" type="java.lang.Integer">
+            <column name="user_role_id"/>
             <generator class="identity"/>
         </id>
         <many-to-one class="neu.edu.entity.Role" embed-xml="true" fetch="select" insert="true" name="role" not-found="exception" optimistic-lock="true" unique="false" update="true">
-            <column name="idrole" not-null="true"/>
+            <column name="role_id" not-null="true"/>
         </many-to-one>
         <many-to-one class="neu.edu.entity.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
-            <column name="iduser" not-null="true"/>
+            <column name="user_id" not-null="true"/>
         </many-to-one>
         <property generated="never" lazy="false" name="status" optimistic-lock="true" type="java.lang.Integer" unique="false">
             <column name="status"/>
         </property>
         <property generated="never" lazy="false" name="createdOn" optimistic-lock="true" type="timestamp" unique="false">
-            <column length="19" name="createdOn"/>
+            <column length="19" name="created_on"/>
         </property>
     </class>
 </hibernate-mapping>

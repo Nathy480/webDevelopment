@@ -10,6 +10,8 @@ import neu.edu.entity.Role;
 @Repository
 public interface RoleDao extends JpaRepository<Role, Integer> {
 	
-	public List<Role> findByRoleName(String roleName);
+	public List<Role> findByRoleName(String roleName);	
+	public Role findByRoleId ( Integer roleId);
+	
 
 }

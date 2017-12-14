@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "funding", catalog = "webdevelopment")
 public class Funding implements java.io.Serializable {
 
-	private Integer idfunding;
+	private Integer fundingId;
 	private Idea idea;
 	private User user;
 	private Integer fundingValue;
@@ -42,17 +42,17 @@ public class Funding implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idfunding", unique = true, nullable = false)
-	public Integer getIdfunding() {
-		return this.idfunding;
+	@Column(name = "funding_id", unique = true, nullable = false)
+	public Integer getFundingId() {
+		return this.fundingId;
 	}
 
-	public void setIdfunding(Integer idfunding) {
-		this.idfunding = idfunding;
+	public void setFundingId(Integer fundingId) {
+		this.fundingId = fundingId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ididea", nullable = false)
+	@JoinColumn(name = "idea_id", nullable = false)
 	public Idea getIdea() {
 		return this.idea;
 	}
@@ -62,7 +62,7 @@ public class Funding implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "iduser", nullable = false)
+	@JoinColumn(name = "user_id", nullable = false)
 	public User getUser() {
 		return this.user;
 	}
@@ -71,7 +71,7 @@ public class Funding implements java.io.Serializable {
 		this.user = user;
 	}
 
-	@Column(name = "fundingValue")
+	@Column(name = "funding_value")
 	public Integer getFundingValue() {
 		return this.fundingValue;
 	}
@@ -80,7 +80,7 @@ public class Funding implements java.io.Serializable {
 		this.fundingValue = fundingValue;
 	}
 
-	@Column(name = "fundedRecieved")
+	@Column(name = "funded_recieved")
 	public Byte getFundedRecieved() {
 		return this.fundedRecieved;
 	}

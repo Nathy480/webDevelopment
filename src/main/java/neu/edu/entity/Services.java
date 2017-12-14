@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 @Table(name = "services", catalog = "webdevelopment")
 public class Services implements java.io.Serializable {
 
-	private Integer idservices;
+	private Integer servicesId;
 	private String servicesName;
 	private String servicesDesc;
 	private Date createdOn;
@@ -49,16 +49,16 @@ public class Services implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idservices", unique = true, nullable = false)
-	public Integer getIdservices() {
-		return this.idservices;
+	@Column(name = "services_id", unique = true, nullable = false)
+	public Integer getServicesId() {
+		return this.servicesId;
 	}
 
-	public void setIdservices(Integer idservices) {
-		this.idservices = idservices;
+	public void setServicesId(Integer servicesId) {
+		this.servicesId = servicesId;
 	}
 
-	@Column(name = "servicesName", nullable = false, length = 45)
+	@Column(name = "services_name", nullable = false, length = 45)
 	public String getServicesName() {
 		return this.servicesName;
 	}
@@ -67,7 +67,7 @@ public class Services implements java.io.Serializable {
 		this.servicesName = servicesName;
 	}
 
-	@Column(name = "servicesDesc", nullable = false, length = 45)
+	@Column(name = "services_desc", nullable = false, length = 45)
 	public String getServicesDesc() {
 		return this.servicesDesc;
 	}
@@ -77,7 +77,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdOn", length = 19)
+	@Column(name = "created_on", length = 19)
 	public Date getCreatedOn() {
 		return this.createdOn;
 	}
@@ -87,7 +87,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createdBy", length = 19)
+	@Column(name = "created_by", length = 19)
 	public Date getCreatedBy() {
 		return this.createdBy;
 	}

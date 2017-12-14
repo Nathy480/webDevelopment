@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Table(name = "idea_service", catalog = "webdevelopment")
 public class IdeaService implements java.io.Serializable {
 
-	private Integer idideaService;
+	private Integer ideaServiceId;
 	private Idea idea;
 	private Services services;
 	private Set<Bid> bids = new HashSet<Bid>(0);
@@ -43,17 +43,17 @@ public class IdeaService implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "ididea_service", unique = true, nullable = false)
-	public Integer getIdideaService() {
-		return this.idideaService;
+	@Column(name = "idea_service_id", unique = true, nullable = false)
+	public Integer getIdeaServiceId() {
+		return this.ideaServiceId;
 	}
 
-	public void setIdideaService(Integer idideaService) {
-		this.idideaService = idideaService;
+	public void setIdeaServiceId(Integer ideaServiceId) {
+		this.ideaServiceId = ideaServiceId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ididea", nullable = false)
+	@JoinColumn(name = "idea_id", nullable = false)
 	public Idea getIdea() {
 		return this.idea;
 	}
@@ -63,7 +63,7 @@ public class IdeaService implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idservices", nullable = false)
+	@JoinColumn(name = "services_id", nullable = false)
 	public Services getServices() {
 		return this.services;
 	}

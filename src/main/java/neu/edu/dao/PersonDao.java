@@ -14,8 +14,7 @@ import neu.edu.entity.User;
 public interface PersonDao extends JpaRepository<Person, Integer> {
 	
 		
-	public List<Person> findByIdperson(Integer personId);
+	public List<Person> findByPersonId(Integer personId);
 	
-
 
 }

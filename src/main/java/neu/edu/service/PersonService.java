@@ -32,9 +32,10 @@ public class PersonService {
 		person.setLastName(userCreation.getLastname());
 		person.setEmail(userCreation.getEmail());
 		person.setDob(userCreation.setDob());
+		person.setConpanyName(userCreation.getCompanyname());
 
 		person = personDao.save(person);
-		return person.getIdperson();
+		return person.getPersonId();
 
 	}
 
@@ -42,49 +43,51 @@ public class PersonService {
 	public List<PersonModel> findAll() {
 		return personDao.findAll().stream().map(person -> {
 			PersonModel personModel = new PersonModel();
-			personModel.setPersonId(person.getIdperson());
+			personModel.setPersonId(person.getPersonId());
 			personModel.setFirstName(person.getFirstName());
 			personModel.setLastName(person.getLastName());
 			personModel.setEmail(person.getEmail());
 			personModel.setDob(person.getDob());
+			personModel.setCompanyName(person.getConpanyName());
 			return personModel;
 		}).collect(Collectors.toList());
 	}
 
-	@Transactional
-	public boolean updatePerson(Integer personId, PersonModel personModel) {
-
-		Person person = personDao.findOne(personId);
-		if (person != null) {
-			person.setFirstName(personModel.getFirstName());
-			person.setLastName(personModel.getLastName());
-			person.setEmail(personModel.getEmail());
-			person.setDob(personModel.getDob());
-			personDao.save(person);
-			return true;
-
-		} else {
-			return false;
-		}
-
-	}
-
-	
-	
-	// CHECK THIS OUT
 //	@Transactional
-//	public boolean deletePerson(Integer personId) {
-//		List<User> users = userDao.findByPersonPersonId(personId);
+//	public boolean updatePerson(Integer personId, PersonModel personModel) {
 //
-//		if (users != null && users.isEmpty()) {
-//			Person person = personDao.findOne(personId);
-//			personDao.delete(person);
+//		Person person = personDao.findOne(personId);
+//		if (person != null) {
+//			person.setFirstName(personModel.getFirstName());
+//			person.setLastName(personModel.getLastName());
+//			person.setEmail(personModel.getEmail());
+//			person.setDob(personModel.getDob());
+//			person.setConpanyName(personModel.getCompanyName());
+//			personDao.save(person);
+//			return true;
+//
 //		} else {
 //			return false;
 //		}
 //
-//		return true;
 //	}
+
+	
+	
+	@Transactional
+	public boolean deletePerson(Integer personId) {
+		List<User> users = userDao.findByPersonPersonId(personId);
+	
+		if (users != null) {
+			Person person = personDao.findOne(personId);
+			userDao.delete(users);
+			personDao.delete(person);
+		} else {
+			return false;
+		}
+
+		return true;
+	}
 
 	@Transactional
 	public PersonModel fetchPersonDetails(Integer personId) {
@@ -94,12 +97,12 @@ public class PersonService {
 		}
 
 		PersonModel personModel = new PersonModel();
-		personModel.setPersonId(person.getIdperson());
+		personModel.setPersonId(person.getPersonId());
 		personModel.setFirstName(person.getFirstName());
 		personModel.setLastName(person.getLastName());
 		personModel.setEmail(person.getEmail());
 		personModel.setDob(person.getDob());
-
+		personModel.setCompanyName(person.getConpanyName());
 
 		return personModel;
 	}

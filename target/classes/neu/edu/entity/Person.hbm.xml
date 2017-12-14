@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="webdevelopment" dynamic-insert="false" dynamic-update="false" mutable="true" name="neu.edu.entity.Person" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="person">
-        <id name="idperson" type="java.lang.Integer">
-            <column name="idperson"/>
+        <id name="personId" type="java.lang.Integer">
+            <column name="person_id"/>
             <generator class="identity"/>
         </id>
         <property generated="never" lazy="false" name="firstName" optimistic-lock="true" type="string" unique="false">
-            <column length="45" name="firstName" not-null="true"/>
+            <column length="45" name="first_name" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="lastName" optimistic-lock="true" type="string" unique="false">
-            <column length="45" name="lastName" not-null="true"/>
+            <column length="45" name="last_name" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
             <column length="45" name="email" not-null="true"/>
@@ -19,17 +19,17 @@
             <column length="10" name="dob" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="conpanyName" optimistic-lock="true" type="string" unique="false">
-            <column length="45" name="conpanyName"/>
+            <column length="45" name="conpany_name"/>
         </property>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="users" optimistic-lock="true" sort="unsorted" table="user">
             <key on-delete="noaction">
-                <column name="idperson" not-null="true"/>
+                <column name="person_id" not-null="true"/>
             </key>
             <one-to-many class="neu.edu.entity.User" embed-xml="true" not-found="exception"/>
         </set>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="categoryStartups" optimistic-lock="true" sort="unsorted" table="category_startup">
             <key on-delete="noaction">
-                <column name="idperson" not-null="true"/>
+                <column name="person_id" not-null="true"/>
             </key>
             <one-to-many class="neu.edu.entity.CategoryStartup" embed-xml="true" not-found="exception"/>
         </set>

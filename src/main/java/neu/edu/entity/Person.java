@@ -1,5 +1,5 @@
 package neu.edu.entity;
-// Generated Dec 10, 2017 6:49:41 PM by Hibernate Tools 5.2.5.Final
+// Generated Dec 12, 2017 2:06:43 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 @Table(name = "person", catalog = "webdevelopment")
 public class Person implements java.io.Serializable {
 
-	private Integer idperson;
+	private Integer personId;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -55,16 +55,16 @@ public class Person implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idperson", unique = true, nullable = false)
-	public Integer getIdperson() {
-		return this.idperson;
+	@Column(name = "person_id", unique = true, nullable = false)
+	public Integer getPersonId() {
+		return this.personId;
 	}
 
-	public void setIdperson(Integer idperson) {
-		this.idperson = idperson;
+	public void setPersonId(Integer personId) {
+		this.personId = personId;
 	}
 
-	@Column(name = "firstName", nullable = false, length = 45)
+	@Column(name = "first_name", nullable = false, length = 45)
 	public String getFirstName() {
 		return this.firstName;
 	}
@@ -73,7 +73,7 @@ public class Person implements java.io.Serializable {
 		this.firstName = firstName;
 	}
 
-	@Column(name = "lastName", nullable = false, length = 45)
+	@Column(name = "last_name", nullable = false, length = 45)
 	public String getLastName() {
 		return this.lastName;
 	}
@@ -101,7 +101,7 @@ public class Person implements java.io.Serializable {
 		this.dob = dob;
 	}
 
-	@Column(name = "conpanyName", length = 45)
+	@Column(name = "conpany_name", length = 45)
 	public String getConpanyName() {
 		return this.conpanyName;
 	}

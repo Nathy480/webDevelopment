@@ -34,39 +34,39 @@ public class PersonController {
 		return personService.fetchPersonDetails(personId);
 	}
 	
-//	@RequestMapping(path="/{personId}", method = RequestMethod.DELETE)
-//	public ResponseEntity<?> deletePerson(@PathVariable("personId") Integer personId) {
-//		ResponseEntity<?> responseEntity = new ResponseEntity<>("Person delete Failed",
-//				HttpStatus.UNPROCESSABLE_ENTITY);
+	@RequestMapping(path="/{personId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deletePerson(@PathVariable("personId") Integer personId) {
+		ResponseEntity<?> responseEntity = new ResponseEntity<>("Person delete Failed",
+				HttpStatus.UNPROCESSABLE_ENTITY);
+
+		if (personService.deletePerson(personId)) {
+			responseEntity = new ResponseEntity<>("Person delete Success",HttpStatus.OK);
+		}
+		return responseEntity;
+	}
+	
+//	@RequestMapping(path="/{personId}",method = RequestMethod.PUT)
+//	public ResponseEntity<?> updatePerson(@PathVariable("personId") Integer personId, @RequestBody PersonModel model) {
+//		ResponseEntity<?> responseEntity = new ResponseEntity<>("Person update Failed",HttpStatus.UNPROCESSABLE_ENTITY);
 //
-//		if (personService.deletePerson(personId)) {
-//			responseEntity = new ResponseEntity<>("Person delete Success",HttpStatus.OK);
+//		if (personService.updatePerson(personId, model)) {
+//			responseEntity = new ResponseEntity<>("Person update Success",HttpStatus.OK);
 //		}
 //		return responseEntity;
 //	}
-	
-	@RequestMapping(path="/{personId}",method = RequestMethod.PUT)
-	public ResponseEntity<?> updatePerson(@PathVariable("personId") Integer personId, @RequestBody PersonModel model) {
-		ResponseEntity<?> responseEntity = new ResponseEntity<>("Person update Failed",HttpStatus.UNPROCESSABLE_ENTITY);
-
-		if (personService.updatePerson(personId, model)) {
-			responseEntity = new ResponseEntity<>("Person update Success",HttpStatus.OK);
-		}
-		return responseEntity;
-	}
 
 	
-	// 1.  POST http://localhost:8085/DemoApp/person/
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<?>  createPerson(@Valid @RequestBody UserCreation userCreation){
-		ResponseEntity<?> responseEntity = new ResponseEntity<>("Person creation Failed", 
-				HttpStatus.UNPROCESSABLE_ENTITY);
-		;
-		if ((personService.createPerson(userCreation) != null)) {
-			responseEntity = new ResponseEntity<>("Person creation Success", HttpStatus.OK);
-		}
-		return responseEntity;
-	}
+//	// 1.  POST http://localhost:8085/DemoApp/person/
+//	@RequestMapping(method = RequestMethod.POST)
+//	public ResponseEntity<?>  createPerson(@Valid @RequestBody UserCreation userCreation){
+//		ResponseEntity<?> responseEntity = new ResponseEntity<>("Person creation Failed", 
+//				HttpStatus.UNPROCESSABLE_ENTITY);
+//		;
+//		if ((personService.createPerson(userCreation) != null)) {
+//			responseEntity = new ResponseEntity<>("Person creation Success", HttpStatus.OK);
+//		}
+//		return responseEntity;
+//	}
 		
 
 }
