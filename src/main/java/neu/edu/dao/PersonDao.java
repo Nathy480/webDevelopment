@@ -13,8 +13,11 @@ import neu.edu.entity.User;
 @Repository
 public interface PersonDao extends JpaRepository<Person, Integer> {
 	
-		
-	public List<Person> findByPersonId(Integer personId);
+	//	public List<Person> findByPersonId(Integer personId);
+	public Person findByPersonId ( Integer personId);
+	
+	
+	public Person findByConpanyName(String companyName);
 	
 
 }

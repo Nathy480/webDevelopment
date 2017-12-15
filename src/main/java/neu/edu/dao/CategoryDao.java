@@ -8,6 +8,7 @@ import neu.edu.entity.Category;
 
 public interface CategoryDao extends JpaRepository<Category, Integer> {
 
-		public List<Category> findByCategoryId(Integer CategoryId);
+	//	public List<Category> findByCategoryId(Integer CategoryId);
+		public Category findByCategoryId(Integer CategoryId);		
 		public Category findByCategoryName(String categoryName);
 }

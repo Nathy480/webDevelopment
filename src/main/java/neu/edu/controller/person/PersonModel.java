@@ -22,6 +22,13 @@ public class PersonModel {
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dob;
 	
+
+	public PersonModel() {
+		// TODO Auto-generated constructor stub
+	}
+	public PersonModel(String conpanyName) {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getPersonId() {
 		return personId;
 	}

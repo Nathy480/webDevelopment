@@ -1,5 +1,7 @@
 package neu.edu.controller.services;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import neu.edu.controller.category.CategoryModel;
 import neu.edu.service.ServicesService;
 
 @RestController
@@ -44,7 +46,11 @@ public class ServicesController {
 		return response;
 	}
 	
-	
+	// List
+	@RequestMapping(method = RequestMethod.GET)
+	public List<ServicesModel> findAll() {
+		return servicesService.findAll();
+	}
 	
 	
 	

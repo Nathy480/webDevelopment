@@ -17,18 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import neu.edu.service.RoleService;
 
 @RestController
-@RequestMapping("/role")
+@RequestMapping("/role/6/")
 public class RoleController {
 
 	@Autowired
 	private RoleService roleService;
-
-	// Comment it put 12/13
-//	@RequestMapping(method = RequestMethod.GET)
-//	public List<RoleModel> findAll() {
-//		return roleService.findAll();
-//	}
-
 	
 	@RequestMapping(method = RequestMethod.GET)
 //	@PreAuthorize("hasAuthority('Admin') or hasAuthority('Individual')")
@@ -51,7 +44,7 @@ public class RoleController {
 
 
 	@RequestMapping(path = "/{roleId}", method = RequestMethod.DELETE)
-	@PreAuthorize("hasAuthority('Individual')")
+//	@PreAuthorize("hasAuthority('Individual')")
 	public ResponseEntity<?> deleteRole(@PathVariable("roleId") Integer roleId) {
 		ResponseEntity<?> response = new ResponseEntity<>("Role Not Deleted", 
 				HttpStatus.UNPROCESSABLE_ENTITY);

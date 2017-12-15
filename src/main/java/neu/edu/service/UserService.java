@@ -173,18 +173,27 @@ public class UserService implements UserDetailsService {
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
 		 User user = userDao.findByUsername(username);
-		 UserRole userRole = new UserRole();
-		  System.out.println("User Role --> " + userRole.getRole().getRoleName());
-	 
+		 
+		 // Get  userId from user with username
+		 Integer userId = user.getUserId();
+
+		 // Get roleId from userRole with userId
+		 List<UserRole> userRole = userRoleDao.findByUserUserId(userId);
+		 
+	     // Get RoleName from role with roleId		 
+		 Role role = new Role();
+		  System.out.println("User" + user.getUserId());
+		  System.out.println(userRoleDao.findByUserUserId(userId));
+		  
 		  if(user == null) {
 	            throw new UsernameNotFoundException(String.format("The username %s doesn't exist", username));
 	        }
+		  		  
 		  
-		  System.out.println(" User Role -->"+ userRole.getUser().getUsername());
 		  List<GrantedAuthority> authorities = new ArrayList<>();
-		  
-		authorities.add(new SimpleGrantedAuthority(userRole.getRole().getRoleName()));
+		authorities.add(new SimpleGrantedAuthority(user.getUsername()));
 		
 	    UserDetails userDetails = new org.springframework.security.core.userdetails.
                 User(user.getUsername(), user.getPassword(), authorities);

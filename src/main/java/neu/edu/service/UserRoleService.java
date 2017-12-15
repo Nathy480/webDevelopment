@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import neu.edu.controller.role.RoleModel;
 import neu.edu.controller.user.UserModel;
 import neu.edu.controller.userrole.UserRoleCreation;
@@ -13,7 +14,7 @@ import neu.edu.controller.userrole.UserRoleModel;
 import neu.edu.dao.RoleDao;
 import neu.edu.dao.UserDao;
 import neu.edu.dao.UserRoleDao;
-
+import neu.edu.entity.Person;
 import neu.edu.entity.Role;
 import neu.edu.entity.User;
 import neu.edu.entity.UserRole;

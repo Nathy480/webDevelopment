@@ -31,11 +31,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 http
                 .requestMatchers().and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/").permitAll();
-//                .antMatchers(HttpMethod.POST,"/user/register").permitAll()
-//                .antMatchers(HttpMethod.GET,"/user/**").permitAll()
-//                .antMatchers("/role/**").permitAll()
-//                .antMatchers("/userrole/**").permitAll()
-
+                .antMatchers(HttpMethod.POST,"/").permitAll()
+                .antMatchers(HttpMethod.GET,"/").permitAll()
+           //     .antMatchers(HttpMethod.GET,"/user/**").permitAll()
+          //      .antMatchers("/role/**").permitAll()
+;
     }
 }
